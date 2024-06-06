@@ -17,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
           child: Column(
             children: [
               Flexible(
-                flex: 5,
+                flex: 4,
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(
@@ -28,6 +28,12 @@ class _MainScreenState extends State<MainScreen> {
                       width: 1,
                     ),
                   ),
+                  child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        height: double.infinity,
+                        width: double.infinity,
+                      )),
                 ),
               ),
               const SizedBox(height: 16),
@@ -41,6 +47,13 @@ class _MainScreenState extends State<MainScreen> {
                     border: Border.all(
                       color: Colors.grey,
                       width: 1,
+                    ),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      height: double.infinity,
+                      child: Row(),
                     ),
                   ),
                 ),
