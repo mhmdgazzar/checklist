@@ -35,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
                       height: double.infinity,
                       child: SingleChildScrollView(
                         child: ListView.builder(
-                          itemCount: 10,
+                          itemCount: itemsList!.length,
                           itemBuilder: (context, index) {
                             return ListTile(
                               title: Row(
