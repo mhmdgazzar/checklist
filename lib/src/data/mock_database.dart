@@ -10,7 +10,7 @@ class MockDatabase implements DatabaseRepository {
   }
 
   @override
-  Future<void> removeItem(String? item) async {
+  Future<void> removeItem(String item) async {
     await Future.delayed(const Duration(seconds: 2));
     itemsList!.remove(item);
   }

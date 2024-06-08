@@ -6,5 +6,5 @@ import 'src/app.dart';
 
 void main() {
   DatabaseRepository databaseRepository = MockDatabase();
-  runApp(const MainApp());
+  runApp(MainApp(databaseRepository: databaseRepository));
 }

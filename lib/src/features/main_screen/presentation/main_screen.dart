@@ -1,8 +1,11 @@
+import 'package:checklist/src/data/database_repository.dart';
 import 'package:checklist/src/data/mock_database.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final DatabaseRepository databaseRepository;
+
+  const MainScreen({super.key, required this.databaseRepository});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -46,11 +49,10 @@ class _MainScreenState extends State<MainScreen> {
                                 ),
                                 IconButton(
                                   icon: const Icon(Icons.delete),
-                                  onPressed: () {
-                                    setState(() {
-                                      //MockDatabase.removeAt(index);
-                                      itemsList?.removeAt(index);
-                                    });
+                                  onPressed: () async {
+                                    await widget.databaseRepository
+                                        .removeItem(itemsList![index]);
+                                    setState(() {});
                                   },
                                 ),
                               ],
