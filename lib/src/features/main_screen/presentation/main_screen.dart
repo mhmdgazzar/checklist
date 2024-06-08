@@ -31,34 +31,28 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      height: double.infinity,
-                      child: SingleChildScrollView(
-                        child: ListView.builder(
-                          itemCount: itemsList!.length,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              title: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    itemsList![index],
-                                  ),
-                                  IconButton(
-                                    icon: const Icon(Icons.delete),
-                                    onPressed: () {
-                                      setState(() {
-                                        itemsList?.removeAt(index);
-                                      });
-                                    },
-                                  ),
-                                ],
+                    child: ListView.builder(
+                      itemCount: itemsList!.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                itemsList![index],
                               ),
-                            );
-                          },
-                        ),
-                      ),
+                              IconButton(
+                                icon: const Icon(Icons.delete),
+                                onPressed: () {
+                                  setState(() {
+                                    itemsList?.removeAt(index);
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
@@ -102,12 +96,17 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         const SizedBox(width: 16),
                         IconButton(
-                            onPressed: () {}, icon: const Icon(Icons.add)),
+                            onPressed: () {
+                              setState(() {
+                                itemsList?.add;
+                              });
+                            },
+                            icon: const Icon(Icons.add)),
                       ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
