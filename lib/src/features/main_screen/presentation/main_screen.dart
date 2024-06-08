@@ -105,10 +105,10 @@ class _MainScreenState extends State<MainScreen> {
                           ),
                           const SizedBox(width: 16),
                           IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  itemsList?.add;
-                                });
+                              onPressed: () async {
+                                await widget.databaseRepository
+                                    .storeItem("empty button");
+                                setState(() {});
                               },
                               icon: const Icon(Icons.add)),
                         ],
