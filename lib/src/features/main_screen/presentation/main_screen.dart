@@ -12,6 +12,8 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  TextEditingController inputTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,6 +89,7 @@ class _MainScreenState extends State<MainScreen> {
                         children: [
                           Expanded(
                             child: TextFormField(
+                              controller: inputTextController,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8.0),
@@ -107,8 +110,10 @@ class _MainScreenState extends State<MainScreen> {
                           IconButton(
                               onPressed: () async {
                                 await widget.databaseRepository
-                                    .storeItem("empty button");
-                                setState(() {});
+                                    .storeItem(inputTextController.text);
+                                setState(() {
+                                  inputTextController.clear();
+                                });
                               },
                               icon: const Icon(Icons.add)),
                         ],
