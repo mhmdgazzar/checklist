@@ -26,7 +26,6 @@ class _MainScreenState extends State<MainScreen> {
               Flexible(
                 flex: 8,
                 child: SizedBox(
-                  height: double.infinity,
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(
