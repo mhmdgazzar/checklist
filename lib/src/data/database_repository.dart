@@ -6,5 +6,5 @@ abstract class DatabaseRepository {
   Future<void> removeItem(String item);
 
   // get method
-  Future<List<String>?> getItems();
+  Future<List<String>> getItems();
 }

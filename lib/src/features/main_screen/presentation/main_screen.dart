@@ -1,5 +1,5 @@
 import 'package:checklist/src/data/database_repository.dart';
-import 'package:checklist/src/data/mock_database.dart';
+import 'package:checklist/src/features/main_screen/presentation/list_view.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -37,31 +37,8 @@ class _MainScreenState extends State<MainScreen> {
                         width: 1,
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ListView.builder(
-                        itemCount: itemsList!.length,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  itemsList![index],
-                                ),
-                                IconButton(
-                                  icon: const Icon(Icons.delete),
-                                  onPressed: () async {
-                                    await widget.databaseRepository
-                                        .removeItem(itemsList![index]);
-                                    setState(() {});
-                                  },
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
+                    child: ItemsListView(
+                      databaseRepository: widget.databaseRepository,
                     ),
                   ),
                 ),
@@ -90,16 +67,18 @@ class _MainScreenState extends State<MainScreen> {
                           Expanded(
                             child: TextFormField(
                               controller: inputTextController,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  borderSide: const BorderSide(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8.0)),
+                                  borderSide: BorderSide(
                                     color: Colors.grey,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  borderSide: const BorderSide(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8.0)),
+                                  borderSide: BorderSide(
                                     color: Colors.black,
                                   ),
                                 ),
