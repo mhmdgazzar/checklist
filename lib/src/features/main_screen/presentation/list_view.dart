@@ -10,12 +10,15 @@ class ItemsListView extends StatefulWidget {
 }
 
 class _ItemsListViewState extends State<ItemsListView> {
+  late final Future<List<String>?> _itemsList =
+      widget.databaseRepository.getItems();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: FutureBuilder<List<String>>(
-        future: widget.databaseRepository.getItems(),
+      child: FutureBuilder<List<String>?>(
+        future: _itemsList,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final itemsList = snapshot.data!;

@@ -1,6 +1,7 @@
 import 'package:checklist/src/data/database_repository.dart';
-import 'package:checklist/src/features/main_screen/presentation/list_view.dart';
 import 'package:flutter/material.dart';
+
+import 'list_view.dart';
 
 class MainScreen extends StatefulWidget {
   final DatabaseRepository databaseRepository;

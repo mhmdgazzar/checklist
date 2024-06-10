@@ -4,7 +4,7 @@ List<String> itemsList = ["test item 1", "test item 2"];
 
 class MockDatabase implements DatabaseRepository {
   @override
-  Future<List<String>> getItems() async {
+  Future<List<String>?> getItems() async {
     await Future.delayed(const Duration(seconds: 2));
     return itemsList;
   }
